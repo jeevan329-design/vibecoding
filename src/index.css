@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* Make every dark: utility follow the in-app theme toggle (was following OS only) */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@layer base {
+  :root {
+    --paper: #FAF6EE;
+    --sand: #EFE7D6;
+    --line: #D9CFB9;
+    --ink: #1F2A2E;
+    --slate: #5B6B6E;
+    --teal: #1F5C5A;
+    --need: #F2A93B;
+    --person: #E8684A;
+    --org: #3D4F9F;
+    --resource: #3E9B6B;
+    --urgent: #C8372D;
+    --need-text: #8A5A00;
+    --person-text: #B8472C;
+    --resource-text: #2B7A50;
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #10201F;
+    --sand: #172A29;
+    --line: #243E3B;
+    --ink: #F3EEE2;
+    --slate: #8F9FA1;
+    --teal: #5FB3AE;
+    --need: #F5B84F;
+    --person: #F08A70;
+    --org: #8E9CE0;
+    --resource: #6CC594;
+    --urgent: #E5655C;
+    --need-text: #F5B84F;
+    --person-text: #F08A70;
+    --resource-text: #6CC594;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Fraunces', Georgia, serif;
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Subtle paper grain texture overlay */
+.paper-texture {
+  background-image: radial-gradient(rgba(31, 42, 46, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+:root[data-theme="dark"] .paper-texture {
+  background-image: radial-gradient(rgba(243, 238, 226, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Tabular figures utility */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+:root:lang(ne) body, :root:lang(ne) h1, :root:lang(ne) h2, :root:lang(ne) h3, :root:lang(ne) .font-display {
+  font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+:root { --crimson: #B5233A; }
+:root[data-theme="dark"] { --crimson: #E5667A; }
+.dhaka-strip {
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--crimson) 0 14px, var(--teal) 14px 28px, var(--need) 28px 42px, var(--org) 42px 56px);
+}
+.card { background: var(--sand); border: 1px solid var(--line); border-radius: 1rem; }
+:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }

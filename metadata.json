@@ -1,0 +1,6 @@
+{
+  "name": "Common Thread",
+  "description": "A shared community operating system that connects people, organizations, resources and needs so communities can understand challenges, coordinate capacity and act together.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
